@@ -46,7 +46,10 @@ router.put('/:id', (req, res, next) => {
 
 	let id = req.params.id;
 	let info = req.body;
-
+	People.update(
+		info, 
+		{ where: {id: id} }
+	)
 	People.findById(id)
 	.then((person) => {
 		return person.update(info)
