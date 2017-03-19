@@ -15,7 +15,7 @@ let peopleToSeed = [{
 db.sync({force: true})
 .then(() => {
 	let peoplePromises = peopleToSeed.map((person) => {
-		return People.findOrCreate(person);
+		return People.findOrCreate({where: person});
 	})
 
 	return Promise.all(...peoplePromises);
