@@ -17,6 +17,8 @@ router.get('/', (req, res, next) => {
 // Make a POST request to /people
 router.post('/', (req, res, next) => {
 
+	console.log('REQ BODY', req.body);
+
 	let personInfo = req.body.person;
 
 	People.create({where:
