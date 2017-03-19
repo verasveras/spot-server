@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const People = require('../db/models/people-model');
 
+// Please make the person object have the following attributes: id, name : “Sean”, favoriteCity : “New York”
+// Make a GET request to retrieve the object created in the previous request
+
 // Make a GET request to /people
 router.get('/', (req, res, next) => {
 	People.findAll()
@@ -11,6 +14,19 @@ router.get('/', (req, res, next) => {
 	.catch(next);
 });
 
+// Make a POST request to /people
+router.post('/', (req, res, next) => {
+
+	let personInfo = req.body.person;
+
+	People.create({where:
+		{personInfo}
+	})
+	.then((createdPerson) => {
+		res.status(200).json(createdPerson);
+	})
+	.catch(next);
+});
 
 // Make a GET request to /people/1
 router.get('/:id', (req, res, next) => {
@@ -25,14 +41,14 @@ router.get('/:id', (req, res, next) => {
 	.catch(next);
 });
 
-// Please make the person object have the following attributes: id, name : “Sean”, favoriteCity : “New York”
-// Make a GET request to retrieve the object created in the previous request
+
+
+
 // Make a PUT request to /people and modify the attribute city to be “Brooklyn”
 // Make a GET request to /people/1
 
 // Make a DELETE request to /people/1
 // Make a POST request to /people
-// Make a GET request to /people
 
 
 
