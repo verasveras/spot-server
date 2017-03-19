@@ -51,7 +51,7 @@ router.put('/:id', (req, res, next) => {
 
 	People.findById(id)
 	.then((person) => {
-		return person.Update(info)
+		return person.update(info)
 	})
 	.then((updatedPerson)=>{
 		res.status(200).json(person);
@@ -59,7 +59,6 @@ router.put('/:id', (req, res, next) => {
 	.catch(next);
 
 });
-
 
 // Make a DELETE request to /people/:id
 router.delete('/:id', (req, res, next) => {
