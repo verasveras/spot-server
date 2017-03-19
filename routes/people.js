@@ -52,11 +52,12 @@ router.get('/:id', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
 
 	let id = req.params.id;
+
 	People.destroy({where: 
 		{id: id}
 	})
-	.then((person) => {
-		res.status(200).send('deleted');
+	.then((numberOfDeletes) => {
+		res.status(200).send(`deleted ${numberOfDeletes}`);
 	})
 	.catch(next);
 });
