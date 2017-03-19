@@ -53,7 +53,12 @@ router.put('/:id', (req, res, next) => {
 
 	People.findById(id)
 	.then((person) => {
-		return person.update(info)
+		if (person)
+			return person.update(info)
+		else {
+			res.json({staus: 'error',
+			msg: 'No one found with id ' + id});
+		}
 	})
 	.then((updatedPerson)=>{
 		res.status(200).json(updatedPerson);
