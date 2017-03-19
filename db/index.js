@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
-const db = new Sequelize('postgres://localhost:5432/spotify');
+console.log('URL!', process.env.DATABASE_URL)
+const db = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:5432/spotify');
+// Postgres url for Heroku OR for local.
 
 
 module.exports = db;
