@@ -20,7 +20,7 @@ router.post('/', (req, res, next) => {
 	console.log('REQ BODY', req.body);
 	let personInfo = req.body;
 
-	People.create({ name: "Hermione", favoriteCity: "London"})
+	People.create(personInfo)
 	.then((createdPerson) => {
 		res.status(200).json(createdPerson);
 	})
