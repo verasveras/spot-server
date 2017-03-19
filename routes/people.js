@@ -17,7 +17,6 @@ router.get('/', (req, res, next) => {
 // Make a POST request to /people
 router.post('/', (req, res, next) => {
 
-	console.log('REQ BODY', req.body);
 	let personInfo = req.body;
 
 	People.create(personInfo)
@@ -46,12 +45,7 @@ router.put('/:id', (req, res, next) => {
 
 	let id = req.params.id;
 	let info = req.body;
-	// People.update(
-	// 	info, 
-	// 	{
-	// 		where: {id:}
-	// 	}
-	// )
+
 	People.findById(id)
 	.then((person) => {
 		return person.update(info)
