@@ -34,7 +34,10 @@ router.get('/:id', (req, res, next) => {
 
 	People.findById(id)
 	.then((person) => {
-		res.status(200).json(person);
+		if (person) 
+			res.status(200).json(person);
+		else 
+			res.status(404).json({});
 	})
 	.catch(next);
 
@@ -66,7 +69,11 @@ router.delete('/:id', (req, res, next) => {
 		id: id
 	}})
 	.then((numberOfDeletes) => {
-		res.status(200).send(`Deleted ${numberOfDeletes}`);
+		if (numberOfDeletes)
+			res.status(200).json({});
+		else
+			res.status(404).json({});
+
 	})
 	.catch(next);
 
