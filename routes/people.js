@@ -8,6 +8,7 @@ router.get('/', (req, res, next) => {
 
 	People.findAll()
 	.then((allPeople) => {
+		allPeople.status = "success";
 		res.status(200).json(allPeople);
 	})
 	.catch(next);
