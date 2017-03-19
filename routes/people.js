@@ -74,8 +74,8 @@ router.delete('/:id', (req, res, next) => {
 		if (numberOfDeletes)
 			res.status(200).json({});
 		else {
-			res.status(500).json({status: "error"},
-				{error: "No person with id " + id});
+			res.statusMessage = "No person with that it."
+			res.status(500).end();
 		}
 
 	})
