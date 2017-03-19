@@ -12,8 +12,8 @@ router.get('/', (req, res, next) => {
 });
 
 
-// Make a POST request to /people
-router.post('/:id', (req, res, next) => {
+// Make a GET request to /people/1
+router.get('/:id', (req, res, next) => {
 
 	let id = req.params.id;
 	People.find({where: 
@@ -31,6 +31,7 @@ router.post('/:id', (req, res, next) => {
 // Make a GET request to /people/1
 
 // Make a DELETE request to /people/1
+// Make a POST request to /people
 // Make a GET request to /people
 
 
