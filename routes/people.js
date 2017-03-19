@@ -46,16 +46,18 @@ router.put('/:id', (req, res, next) => {
 
 	let id = req.params.id;
 	let info = req.body;
-	People.update(
-		info, 
-		{ where: {id: id} }
-	)
+	// People.update(
+	// 	info, 
+	// 	{
+	// 		where: {id:}
+	// 	}
+	// )
 	People.findById(id)
 	.then((person) => {
 		return person.update(info)
 	})
 	.then((updatedPerson)=>{
-		res.status(200).json(person);
+		res.status(200).json(updatedPerson);
 	})
 	.catch(next);
 
