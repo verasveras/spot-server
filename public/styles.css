@@ -1,4 +1,19 @@
-body {
+#main {
 	padding: 60px;
 	font-family: helvetica, sans-serif;
+}
+
+.action {
+	text-align: center;
+	background-color: #c6dcff;
+	margin: 15px 0;
+	border-radius: 10px;
+	padding: 15px;
+}
+
+.response{
+	background-color: #dddddd; 
+	margin: 15px 0;
+	border-radius: 10px;
+	padding: 20px;
 }
