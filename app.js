@@ -12,7 +12,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api', require('./routes'));
 
-app.use('/', (req, res)=>{
+app.use(function (err, req, res, next) {
+    res.status(500).send('Internal server error.');
+});
+
+app.use('/', (req, res, next)=>{
 	res.status(200).send('Hello!');
 });
 
