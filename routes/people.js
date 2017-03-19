@@ -37,8 +37,8 @@ router.get('/:id', (req, res, next) => {
 		if (person) 
 			res.status(200).json(person);
 		else {
-			res.status(500).json({status: "error"},
-				{error: "No person with id " + id});
+			res.json({staus: 'error',
+			msg: 'No one found with id ' + id});
 		}
 	})
 	.catch(next);
@@ -74,8 +74,8 @@ router.delete('/:id', (req, res, next) => {
 		if (numberOfDeletes)
 			res.status(200).json({});
 		else {
-			res.statusMessage = "No person with that it."
-			res.status(500).end();
+			res.json({staus: 'error',
+			msg: 'No one found with id ' + id});
 		}
 
 	})
