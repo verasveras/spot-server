@@ -17,7 +17,7 @@ app.use(function (err, req, res, next) {
 });
 
 app.use('/', (req, res, next)=>{
-	res.status(200).send('Hello!');
+	res.status(200).sendFile('./index.html');
 });
 
 app.listen(process.env.PORT || 3000);
