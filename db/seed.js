@@ -18,7 +18,7 @@ db.sync({force: true})
 		return People.findOrCreate({where: person});
 	})
 
-	return Promise.all(...peoplePromises);
+	return Promise.all(peoplePromises);
 })
 .then(() => {
 	console.log('Everything is okay!')
