@@ -12,12 +12,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api', require('./routes'));
 
+app.use('/', (req, res, next)=>{
+	res.status(200).sendFile('./index.html');
+});
+
 app.use(function (err, req, res, next) {
     res.status(500).send('Internal server error.');
 });
 
-app.use('/', (req, res, next)=>{
-	res.status(200).sendFile('./index.html');
-});
 
 app.listen(process.env.PORT || 3000);
