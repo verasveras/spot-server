@@ -11,10 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api', require('./routes'));
-
-app.use('/', (req, res, next)=>{
-	res.status(200).sendFile('./index.html');
-});
+app.use(express.static('public'));
 
 app.use(function (err, req, res, next) {
     res.status(500).send('Internal server error.');
