@@ -8,7 +8,6 @@ router.get('/', (req, res, next) => {
 
 	People.findAll()
 	.then((allPeople) => {
-		allPeople.status = "success";
 		res.status(200).json(allPeople);
 	})
 	.catch(next);
@@ -37,8 +36,10 @@ router.get('/:id', (req, res, next) => {
 	.then((person) => {
 		if (person) 
 			res.status(200).json(person);
-		else 
-			res.status(404).json({});
+		else {
+			res.status(500).json({status: "error"},
+				{error: "No person with id " + id});
+		}
 	})
 	.catch(next);
 
@@ -72,8 +73,10 @@ router.delete('/:id', (req, res, next) => {
 	.then((numberOfDeletes) => {
 		if (numberOfDeletes)
 			res.status(200).json({});
-		else
-			res.status(404).json({});
+		else {
+			res.status(500).json({status: "error"},
+				{error: "No person with id " + id});
+		}
 
 	})
 	.catch(next);
