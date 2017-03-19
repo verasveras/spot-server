@@ -45,12 +45,22 @@ router.get('/:id', (req, res, next) => {
 
 
 
-
 // Make a PUT request to /people and modify the attribute city to be “Brooklyn”
-// Make a GET request to /people/1
+
 
 // Make a DELETE request to /people/1
-// Make a POST request to /people
+router.get('/:id', (req, res, next) => {
+
+	let id = req.params.id;
+	People.destroy({where: 
+		{id: id}
+	})
+	.then((person) => {
+		res.status(200).send('deleted');
+	})
+	.catch(next);
+});
+
 
 
 
